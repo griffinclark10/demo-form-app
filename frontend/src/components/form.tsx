@@ -35,7 +35,7 @@ export default function UserForm() {
             console.log('Form submitted successfully:', response.data);
             setMessage('Form submitted successfully!🎉');
         } catch (error) {
-            console.error('Error submitting form:', error);
+            // console.error('Error submitting form:', error);
             setMessage('Error submitting form!😰');
         }
         setShowPopup(true);
@@ -44,7 +44,7 @@ export default function UserForm() {
     return (
         <>
             {showPopup && <Popup message={message} onClose={() => {setShowPopup(false), reset()}} />}
-            <form onSubmit={handleSubmit(onSubmit)} noValidate className="max-w-lg mx-auto my-10 p-8 shadow-lg rounded bg-accent border-orange-300 border">
+            <form onSubmit={handleSubmit(onSubmit)} data-testid="user-form" noValidate className="max-w-lg mx-auto my-10 p-8 shadow-lg rounded bg-accent border-orange-300 border">
                 <div className="mb-6">
                     <label htmlFor="name" className={labelClassName}>Name</label>
                     <input type="text" id="name" className={inputClassName} placeholder="John Doe" {...register("name", {
