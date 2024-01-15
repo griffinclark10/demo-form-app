@@ -1,7 +1,11 @@
 'use client';
+
 import React, { useState } from 'react';
+
 import Button from './button';
+
 import { PaperPlaneIcon } from '@radix-ui/react-icons'; 
+import axios from 'axios';
 
 export default function UserForm() {
     const [formData, setFormData] = useState({
@@ -10,18 +14,25 @@ export default function UserForm() {
         message: ''
     });
 
+    // changes form data based on input changes
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // changes form data based on textarea changes
     const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // submits form data to backend
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Handle form submission here, like sending data to a server
-        console.log(formData);
+        try {
+            const response = await axios.post('http://localhost:5000/api/submit', formData);
+            console.log('Form submitted successfully:', response.data);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
     };
 
     return (
