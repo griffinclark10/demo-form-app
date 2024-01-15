@@ -43,15 +43,15 @@ app.listen(PORT, () => {
 app.use(express.json());
 
 // Async post request handler to save form data to MongoDB
-app.post('/api/submit', async (req, res) => { 
+app.post('/api/submit', async (req, res) => {
     console.log("Received form submission:", req.body);
     try {
         const formData = req.body;
         const formSubmissionCollection = db.collection('form-submissions');
         const result = await formSubmissionCollection.insertOne(formData);
-        res.status(200).json({ message: 'Form data saved -- submission: ', id: result.insertedId });
+        res.status(200).json({ message: 'Form data saved ', id: result.insertedId });
     } catch (err) {
         console.error("Error saving form data", err);
         res.status(500).json({ message: 'Error saving form data', error: err });
     }
-})
+});

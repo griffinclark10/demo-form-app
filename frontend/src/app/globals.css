@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background: 232,244,255;
+  --primary: 58, 107, 53;    
+  --accent: 227, 180, 72;    
+  --secondary: 203, 209, 143; 
+  --background: 249,249,249;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,7 +19,16 @@
   }
 }
 
-body {
-  /* color: rgb(var(--foreground-rgb)); */
-  background: rgb(var(--background))
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background: rgb(var(--background))
+  }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Prevents scrolling */
 }
