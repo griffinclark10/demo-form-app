@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:frontend": "cd frontend && npm test",
+    "test:backend": "cd backend && npm test",
     "start:frontend": "cd frontend && npm run dev",
     "start:backend": "cd backend && node server.js"
   },
