@@ -35,6 +35,7 @@ const app = express();
 // confirgure CORS to make sure frontend can access the API
 const corsOptions = {
     origin: 'http://localhost:3000',
+    origin: 'https://demo-form-app-iota.vercel.app/'
 };
 
 const PORT = process.env.PORT || 5000;
