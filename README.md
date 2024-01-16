@@ -32,7 +32,14 @@ npm run test:backend
 ```
 
 ## CI/CD Practices
-
+This project implements a Continuous Integration/Continuous Deployment (CI/CD) pipeline to ensure code quality and smooth deployment.
+### Branch Structure
+- Main Branch: The production-ready codebase.
+- Dev Branch: Used for development and testing. All changes must be made via pull requests.
+### CI/CD Process
+Automated tests are set up using Jest. They are run through the commands npm run test:frontend and npm run test:backend.
+When a pull request is made to the main branch, our CI pipeline runs the automated tests. The pipeline is configured in .github/workflows/main.yml. Tests must pass for the code to be eligible for merging into main.
+The main branch is protected. Pull requests must be reviewed and pass all CI checks before merging.
 
 ## Deployment
 I chose to deploy the backend and the frontend on different platforms, Vercel (frontend) and Heroku (backend). I chose Heroku for the backend because it offers great support for Node.js applications, and a wide range of add-ons for databases and other backend services, which would be beneficial if the project were to expand. I opted for Vercel for the frontend because it is specifically optimized for Next.js applications, providing advantages like fast deployment.
