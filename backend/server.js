@@ -58,7 +58,7 @@ app.post('/api/submit', async (req, res) => {
     console.log("Received form submission:", req.body);
     try {
         const formData = req.body;
-        const formCollection = process.env.MONGODB_COLLECTION;
+        const formCollection = process.env.MONGODB_COLLECTION || 'submissions';
         const formSubmissionCollection = db.collection(formCollection);
         const result = await formSubmissionCollection.insertOne(formData);
         res.status(200).json({ message: 'Form data saved ', id: result.insertedId });
