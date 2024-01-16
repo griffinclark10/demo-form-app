@@ -11,7 +11,7 @@ const mongoUser = process.env.MONGODB_USER;
 const mongoPswd = process.env.MONGODB_PASSWORD;
 
 //Setup mongodb connection
-const uri = `mongodb+srv://griffinclark10:${mongoPswd}@demo-form-db.ai7xqkx.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${mongoUser}:${mongoPswd}@demo-form-db.ai7xqkx.mongodb.net/?retryWrites=true&w=majority`;
 
 let db;
 
