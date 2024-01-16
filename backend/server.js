@@ -34,9 +34,13 @@ const app = express();
 
 // confirgure CORS to make sure frontend can access the API
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://demo-form-app-iota.vercel.app/'],
+    origin: ['http://localhost:3000', 'https://demo-form-app-iota.vercel.app'],
     optionsSuccessStatus: 200
 };
+
+app.use(express.json());
+app.use(cors(corsOptions));
+module.exports = app;
 
 const PORT = process.env.PORT || 5000;
 if (require.main === module) {
@@ -46,9 +50,6 @@ if (require.main === module) {
     });
     module.exports = { server };
 }
-app.use(express.json());
-app.use(cors(corsOptions));
-module.exports = app;
 
 
 // Async post request handler to save form data to MongoDB
