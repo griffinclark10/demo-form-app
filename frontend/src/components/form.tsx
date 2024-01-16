@@ -31,7 +31,8 @@ export default function UserForm() {
     // submits form data to backend
     const onSubmit = async (data: FormValues) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/submit', data);
+            // const response = await axios.post('http://localhost:5000/api/submit', data);
+            const response = await axios.post('https://demo-form-server-c853593a2fda.herokuapp.com/api/submit', data);
             console.log('Form submitted successfully:', response.data);
             setMessage('Form submitted successfully!🎉');
         } catch (error) {
